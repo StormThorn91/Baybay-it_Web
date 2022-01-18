@@ -47,6 +47,36 @@ window.addEventListener('load', () => {
     canvas.addEventListener('mousedown', startPosition);
     canvas.addEventListener('mouseup', finishedPosition);
     canvas.addEventListener('mousemove', draw);
+    //touchscreen eventlisteners
+    canvas.addEventListener('touchstart', function(e) {
+        this.down = true;   
+        this.X = e.touches[0].pageX ;
+        this.Y = e.touches[0].pageY ;
+        e.preventDefault();
+      }, 0);
+
+    canvas.addEventListener('touchend', function() {
+        this.down = false;    
+        ctx.beginPath();
+        let base64 = canvas.toDataURL("image/jpeg");
+        console.log(base64)
+        const strURI = document.getElementById('uri-str').value = base64.substring(23);      
+      }, 0);
+
+    canvas.addEventListener('touchmove', function(e) {
+        if(this.down) {
+          with(ctx) {
+            beginPath();
+            moveTo(this.X, this.Y);
+            lineTo(e.touches[0].pageX, e.touches[0].pageY);
+            ctx.lineWidth=10;
+            stroke();
+          }
+          this.X = e.touches[0].pageX;
+          this.Y = e.touches[0].pageY;
+          e.preventDefault();
+        }
+      }, 0);
 
     btnClear.addEventListener('click', () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
