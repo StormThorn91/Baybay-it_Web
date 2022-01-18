@@ -11,3 +11,30 @@ h2 {
 #canvas {
     border: 2px solid black;
 }
+
+.container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 40vw 50vw;
+    gap: 10px;
+
+}
+
+#handrawn {
+    width: 50%;
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: auto;
+    }
+    #canvas {
+        width: 100%;
+    }
+
+    #handrawn {
+        width: 100%;
+    }
+}

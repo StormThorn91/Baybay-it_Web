@@ -2,6 +2,7 @@
 
 window.addEventListener('load', () => {
  const canvas = document.querySelector("#canvas");
+ const btnClear = document.querySelector("#clear");
  const ctx = canvas.getContext('2d');
  ctx.fillStyle = "white";
  ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -47,5 +48,10 @@ window.addEventListener('load', () => {
     canvas.addEventListener('mouseup', finishedPosition);
     canvas.addEventListener('mousemove', draw);
 
+    btnClear.addEventListener('click', () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "white";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+    })
 
 });

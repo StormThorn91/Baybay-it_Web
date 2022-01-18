@@ -1,4 +1,3 @@
-from codecs import decode
 from flask import Flask, render_template, request
 import base64
 from PIL import Image

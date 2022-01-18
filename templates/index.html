@@ -11,15 +11,23 @@
     <header>
         <h2>Baybay-it Web</h2>
     </header>
-    <canvas id="canvas" width="400" height="400"></canvas>
+    <div class="container">
+        <div class="left-components">
+            <canvas id="canvas" width="400" height="400"></canvas>
+            <form action="/recognize" method="post" id="form">
+                <input type="text" id="uri-str" name="getURI" hidden>
+                <input type="submit" id="save" value="Predict">
+            </form>
+            <input type="button" id="clear" value="Clear">
+        </div>
 
-    <form action="/recognize" method="post" id="form">
-        <input type="text" id="uri-str" name="getURI" hidden>
-        <input type="submit" id="save" value="Predict">
-    </form>
-
-    <p>{{result}}</p>
-    <img src="{{drawn}}" alt="">
+        <div class="right-components">
+            <h2>Result:</h2>
+            <h1>{{result}}</p>
+            <img id="handrawn" src="{{drawn}}" alt="">
+            <img src="../static/images/chart.png" style="width: 100%;">
+        </div>
+    </div>
     
     <script src="../static/js/index.js"></script>
 </body>
