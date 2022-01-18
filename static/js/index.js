@@ -1,0 +1,51 @@
+//Scripts for the whole web app
+
+window.addEventListener('load', () => {
+ const canvas = document.querySelector("#canvas");
+ const ctx = canvas.getContext('2d');
+ ctx.fillStyle = "white";
+ ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+ //variables
+ let coord = {x: 0, y:0}
+ let painting = false;
+
+ function getPosition(e) {
+     coord.x = e.clientX - canvas.offsetLeft;
+     coord.y = e.clientY - canvas.offsetTop;
+ }
+
+ function startPosition(e) {
+     painting = true;
+     draw(e);
+ }
+
+ function finishedPosition() {
+     painting = false;
+     ctx.beginPath();
+     let base64 = canvas.toDataURL("image/jpeg");
+     console.log(base64)
+     const strURI = document.getElementById('uri-str').value = base64.substring(23);
+ }
+
+ function draw(e) {
+     if(!painting) {
+         return;
+     }
+
+     ctx.lineWidth = 10;
+     ctx.lineCap = "round";
+     ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+     ctx.stroke();
+     ctx.beginPath();
+     ctx.moveTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
+
+ }
+
+    //Eventlisteners
+    canvas.addEventListener('mousedown', startPosition);
+    canvas.addEventListener('mouseup', finishedPosition);
+    canvas.addEventListener('mousemove', draw);
+
+
+});
