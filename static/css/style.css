@@ -1,0 +1,13 @@
+@font-face {
+    font-family: cursive;
+    src: url('../fonts/CedarvilleCursive-Regular.ttf');
+
+}
+
+h2 {
+    font-family: cursive;
+}
+
+#canvas {
+    border: 2px solid black;
+}
