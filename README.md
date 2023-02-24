@@ -5,4 +5,4 @@ Baybayin is a Filipino handwritten character that originated during the pre-colo
 A deep learning model was utilized in this web app to recognized the character drawn in the canvas.
 
 Access it here:
-https://baybay-it.herokuapp.com/
+https://baybay-it.onrender.com/
