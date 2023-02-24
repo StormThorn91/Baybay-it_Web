@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,28 +8,32 @@
     <title>Baybay-it Web Version</title>
     <link rel="stylesheet" href="../static/css/style.css">
 </head>
+
 <body>
     <header>
         <h2>Baybay-it Web</h2>
     </header>
+    <div class="options">
+        <form action="/recognize" method="post" id="form">
+            <input type="text" id="uri-str" name="getURI" hidden>
+            <input class="btn" type="submit" id="save" value="Predict">
+        </form>
+        <input class="btn" type="button" id="clear" value="Clear">
+    </div>
     <div class="container">
         <div class="left-components">
-            <canvas id="canvas" width="400" height="400"></canvas>
-            <form action="/recognize" method="post" id="form">
-                <input type="text" id="uri-str" name="getURI" hidden>
-                <input type="submit" id="save" value="Predict">
-            </form>
-            <input type="button" id="clear" value="Clear">
+            <div class="canvas-container">
+                <canvas id="canvas" width="500" height="500" class="drawingCanvas"></canvas>
+            </div>
         </div>
 
         <div class="right-components">
             <h2>Result:</h2>
-            <h1>{{result}}</p>
-            <img id="handrawn" src="{{drawn}}" alt="">
-            <img src="../static/images/chart.png" style="width: 100%;">
+            <h1>{{result}}</h1>
+                <img id="handrawn" src="{{drawn}}" alt="">
         </div>
     </div>
-    
+
     <script src="../static/js/index.js"></script>
 </body>
 

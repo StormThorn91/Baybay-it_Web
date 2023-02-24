@@ -4,38 +4,112 @@
 
 }
 
-h2 {
-    font-family: cursive;
+body {
+    margin: 0;
+    padding: 0;
+    overflow-y: hidden;
 }
 
-#canvas {
-    border: 2px solid black;
-    touch-action: none;
+header {
+    display: flex;
+    justify-content: center;
+    font-family:Brush Script MT, Brush Script Std, cursive;
+    color: black;
+    padding: 1px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-bottom: 10px;
+}
+
+.options {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    text-align: center;
+    margin-bottom: 10px;
+    
+}
+
+#save {
+    width: 100%;
+    font-family: OCR A Std, monospace;
+    font-size: 20px;
+    height: 50px;
+    background: black;
+    border: 3px solid black;
+    color: white;
+    
+}
+
+#save:hover {
+    background: transparent;
+    cursor: pointer;
+    color: black;
+}
+
+#clear {
+    font-family: OCR A Std, monospace;
+    font-size: 20px;
+    height: 50px;
+    background: #F79596;
+    border: 3px solid #F79596;
+    color: black;
+
+}
+
+#clear:hover {
+    background: transparent;
+    cursor: pointer;
+    color: black;
 }
 
 .container {
-    width: 100%;
     display: grid;
-    grid-template-columns: 40vw 50vw;
-    gap: 10px;
+    grid-template-columns: 50% 50%;
+}
 
+.right-components {
+    font-family: OCR A Std, monospace;
+}
+
+.canvas-container {
+    display: flex;
+    justify-content: center;
+}
+
+.drawingCanvas {
+    border: 2px solid black
+}
+
+.right-components h2 {
+    padding: 0;
+    margin: 0;
 }
 
 #handrawn {
-    width: 50%;
+    height:50%;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1100px) {
+    body {
+        overflow-y: auto;
+    }
+    .options {
+        display: flex;
+        flex-direction: column;
+    }
     .container {
         width: 100%;
         display: grid;
         grid-template-columns: auto;
-    }
-    #canvas {
-        width: 100%;
+
     }
 
-    #handrawn {
-        width: 100%;
+    #canvas {
+        width: 400px;
+    }
+
+    .right-components {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
