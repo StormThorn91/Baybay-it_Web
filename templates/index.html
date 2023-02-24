@@ -13,6 +13,17 @@
     <header>
         <h2>Baybay-it Web</h2>
     </header>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h1 class="modal-title">Baybay-it</h1>
+            <h1>Instructions:</h1>
+            <h4>1. Draw a baybayin character on the canvas box on the left.</h4>
+            <h4>2. Click on Predict Button</h4>
+            <h4>3. The result will be shown on the right side of the page</h4>
+            <h4>Note: If you wanna clear out your drawing, just click on the Clear Button</h4>
+        </div>
+    </div>
     <div class="options">
         <form action="/recognize" method="post" id="form">
             <input type="text" id="uri-str" name="getURI" hidden>
@@ -28,9 +39,12 @@
         </div>
 
         <div class="right-components">
-            <h2>Result:</h2>
+            <div class="result-instruct">
+                <h2>Result:</h2>
+                <button class="help" onclick="showModal()">?</button>
+            </div>
             <h1>{{result}}</h1>
-                <img id="handrawn" src="{{drawn}}" alt="">
+            <img id="handrawn" src="{{drawn}}" alt="">
         </div>
     </div>
 

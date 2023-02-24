@@ -10,10 +10,51 @@ body {
     overflow-y: hidden;
 }
 
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    overflow-y: hidden;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+    text-align: center;
+    font-family: OCR A Std, monospace;;
+  }
+
+  .modal-title {
+    font-family: Brush Script MT, Brush Script Std, cursive;
+  }
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
 header {
     display: flex;
     justify-content: center;
-    font-family:Brush Script MT, Brush Script Std, cursive;
+    font-family: Brush Script MT, Brush Script Std, cursive;
     color: black;
     padding: 1px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -25,7 +66,7 @@ header {
     grid-template-columns: 50% 50%;
     text-align: center;
     margin-bottom: 10px;
-    
+
 }
 
 #save {
@@ -36,7 +77,7 @@ header {
     background: black;
     border: 3px solid black;
     color: white;
-    
+
 }
 
 #save:hover {
@@ -49,9 +90,9 @@ header {
     font-family: OCR A Std, monospace;
     font-size: 20px;
     height: 50px;
-    background: #F79596;
-    border: 3px solid #F79596;
-    color: black;
+    background: gray;
+    border: 3px solid gray;
+    color: white;
 
 }
 
@@ -76,7 +117,8 @@ header {
 }
 
 .drawingCanvas {
-    border: 2px solid black
+    border: 2px solid black;
+    cursor: crosshair;
 }
 
 .right-components h2 {
@@ -84,18 +126,39 @@ header {
     margin: 0;
 }
 
+.result-instruct {
+    display: flex;
+    flex-direction: row;
+}
+
+.help {
+    border-radius: 70px;
+    background: transparent;
+    color: #888;
+    border:1px solid #888;
+}
+
+.help:hover {
+    background: #888;
+    border:1px solid #888;
+    color: white;
+    cursor: pointer;
+}
+
 #handrawn {
-    height:50%;
+    height: 50%;
 }
 
 @media screen and (max-width: 1100px) {
     body {
         overflow-y: auto;
     }
+
     .options {
         display: flex;
         flex-direction: column;
     }
+
     .container {
         width: 100%;
         display: grid;
@@ -105,6 +168,34 @@ header {
 
     #canvas {
         width: 400px;
+    }
+
+    .right-components {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    body {
+        overflow-y: auto;
+    }
+
+    .options {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: auto;
+
+    }
+
+    #canvas {
+        width: 200px;
     }
 
     .right-components {
