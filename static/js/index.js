@@ -1,5 +1,21 @@
 //Scripts for the whole web app
 
+var modal = document.getElementById("modal");
+
+const showModal = () => {
+  modal.style.display = "block";
+}
+
+const closeModal = () => {
+  modal.style.display = "none";
+}
+
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
 window.addEventListener('load', () => {
  const canvas = document.querySelector("#canvas");
  const btnClear = document.querySelector("#clear");
