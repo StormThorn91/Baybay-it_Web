@@ -119,6 +119,7 @@ header {
 .drawingCanvas {
     border: 2px solid black;
     cursor: crosshair;
+    touch-action: none;
 }
 
 .right-components h2 {
@@ -168,6 +169,7 @@ header {
 
     #canvas {
         width: 400px;
+        touch-action: none;
     }
 
     .right-components {
@@ -196,6 +198,7 @@ header {
 
     #canvas {
         width: 200px;
+        touch-action: none;
     }
 
     .right-components {
