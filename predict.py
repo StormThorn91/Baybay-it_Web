@@ -1,7 +1,7 @@
 import numpy as np
 import tensorflow as tf
 import keras 
-import keras.preprocessing.image as image
+from keras.preprocessing import image
 import os
 import sys
 
