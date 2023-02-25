@@ -1,7 +1,7 @@
 import numpy as np
 import tensorflow as tf
 import keras 
-from keras.preprocessing import image
+import keras.utils as image
 import os
 import sys
 
@@ -25,8 +25,11 @@ def prepare_image(file):
 
 #Make a prediction based on the uploaded image
 def predict(model, img):
+    print("Prepping image")
     preprocessed_image = prepare_image(img)
+    print("Doing model.predict")
     predictions2 = model.predict(preprocessed_image)
+    print("Setting result")
     predictions2 = np.argmax(predictions2,axis=1)
     result = CATEGORIES[predictions2[0]]
 
